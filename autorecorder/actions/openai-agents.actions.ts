@@ -695,8 +695,8 @@ const genuiTake: PageActionHandler = async (page, config, _root, ctx) => {
     await sleep(2500);
     return;
   }
-  // Rest on the result so the viewer can see that nothing rendered. 'error' starts the segment
-  // that shows the outcome.
+  // Rest on the result so the viewer can see that nothing rendered. 'error' starts the segment the
+  // outcome shows, never before it.
   mark('error');
   const last = page.locator(SELECTORS.assistantMessage).last();
   if (await last.isVisible().catch(() => false)) await glideTo(page, last, 2500);
