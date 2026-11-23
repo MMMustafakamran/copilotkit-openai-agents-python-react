@@ -4,13 +4,13 @@
  "repo": "OpenAIAgents-React",
  "docBase": "https://docs.copilotkit.ai/openai-agents-python/",
  "versions": {
-  "@copilotkit/react-core": "1.89.0",
-  "@copilotkit/runtime": "1.89.0",
+  "@copilotkit/react-core": "1.90.0",
+  "@copilotkit/runtime": "1.90.0",
   "@ag-ui/client": "1.0.5",
   "next": "16.4.5",
   "react": "19.3.0",
   "openai-agents": "0.25.0",
-  "ag-ui-openai-agents": "0.1.0"
+  "ag-ui-openai-agents": "0.2.0"
  },
  "testedContext": {
   "os": "Microsoft Windows 11 Pro",
@@ -131,8 +131,8 @@
     {
      "text": null,
      "clip": "OAP-react-01-Quickstart",
-     "loom": "https://www.loom.com/share/10d245cec760486d914b3c474771b8c9",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/c636f9ae163a4c689fe7ae594412335a",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -150,8 +150,8 @@
     {
      "text": null,
      "clip": "OAP-react-02-PrebuiltChat",
-     "loom": "https://www.loom.com/share/3348cfa9a7874633a1ab1e16de8decc0",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/487b8f8dd727472ea615704f17c66410",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -169,8 +169,8 @@
     {
      "text": null,
      "clip": "OAP-react-03-PrebuiltSidebar",
-     "loom": "https://www.loom.com/share/51de101ba8ad47e6b3594f41ea021364",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/1fb2f528acf74254b592baf55046c1b8",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -188,8 +188,8 @@
     {
      "text": null,
      "clip": "OAP-react-04-PrebuiltPopup",
-     "loom": "https://www.loom.com/share/40e446cda3fd44538cbb4d7dff00b7c0",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/8d888f2338a34055bef2e05880e4db72",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -207,8 +207,8 @@
     {
      "text": null,
      "clip": "OAP-react-05-ChatControls",
-     "loom": "https://www.loom.com/share/56985309130246f0a73afd7eb504f6cf",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/ab58003686824d6ab780e745eb381228",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -229,8 +229,8 @@
     {
      "text": null,
      "clip": "OAP-react-06-ProgrammaticControl",
-     "loom": "https://www.loom.com/share/986be73dcee44fd79cc6bd10aa248842",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/6251bf8675f34950b2a59ee2d3be8b8c",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -248,8 +248,8 @@
     {
      "text": null,
      "clip": "OAP-react-15-ThreadsDrawer",
-     "loom": "https://www.loom.com/share/8fc42544f7e24d95b8762811e4a52e86",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/d8d3b22bf06f41b4834e549bfcee232e",
+     "filmed": "2026-11-23"
     }
    ],
    "notes": [
@@ -264,19 +264,17 @@
    "child": false,
    "docPath": "headless-threads",
    "reachable": "sidebar",
-   "status": "❌",
-   "findings": [
-    2
-   ],
+   "status": "✅",
+   "findings": [],
    "notes": [
-    "Issue: the runtime registers the agent as \"default\", but the quickstart's provider targets openai_agent, so useAgent throws: Agent 'openai_agent' not found after runtime sync. Known agents: [default]."
+    "Note: the page registers the agent as \"default\" while the quickstart provider targets openai_agent; a one-string rename fixes it."
    ],
    "links": [
     {
      "text": null,
      "clip": "OAP-react-16-HeadlessThreads",
-     "loom": "https://www.loom.com/share/9598cf423e2b49609e2397ce8ef7d34b",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/63cb3d3408f64aeb81ba6fa005e17acb",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -294,8 +292,8 @@
     {
      "text": null,
      "clip": "OAP-react-07-CSS",
-     "loom": "https://www.loom.com/share/e452652349364316929410da6f9c24bf",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/be4fa7e4a1aa42e18fb019e5b0cd7f7c",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -313,8 +311,8 @@
     {
      "text": null,
      "clip": "OAP-react-09-Markdown",
-     "loom": "https://www.loom.com/share/1977b624bdf7432baba2d453abfa4570",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/5aaee176ddc240b3b11bb88b2042e8fd",
+     "filmed": "2026-11-23"
     }
    ],
    "notes": [
@@ -335,8 +333,8 @@
     {
      "text": null,
      "clip": "OAP-react-08-Slots",
-     "loom": "https://www.loom.com/share/ad03a3a6882a4d1ba65a189dafcf378e",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/729fa615e845448691e44113cdf0985d",
+     "filmed": "2026-11-23"
     }
    ],
    "notes": [
@@ -357,8 +355,8 @@
     {
      "text": null,
      "clip": "OAP-react-10-HeadlessUI",
-     "loom": "https://www.loom.com/share/fd740643418e45c0a49e9566580746ad",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/5436e3fde4c542359f00e650b077c6e3",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -379,8 +377,8 @@
     {
      "text": null,
      "clip": "OAP-react-12-Reasoning",
-     "loom": "https://www.loom.com/share/10472e90f5714585b58082d7ea60288c",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/7580b9e766c74385aad44acb63dd8521",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -401,8 +399,8 @@
     {
      "text": null,
      "clip": "OAP-react-11-ReasoningMessages",
-     "loom": "https://www.loom.com/share/844187baa6cb4afab00c44cf2f9554b2",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/5f25674bc708490b9d0f7e476885beda",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -420,8 +418,8 @@
     {
      "text": null,
      "clip": "OAP-react-13-Multimodal",
-     "loom": "https://www.loom.com/share/6cf6a8bb7543481292498c56f307b07d",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/418074906e3443728d4de7dc188f4cfc",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -439,8 +437,8 @@
     {
      "text": null,
      "clip": "OAP-react-14-Voice",
-     "loom": "https://www.loom.com/share/5daae3b181f74d44bf453036e8b7b62f",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/7de374f492984fc69a24b7e20b2b2a38",
+     "filmed": "2026-11-23"
     }
    ],
    "notes": [
@@ -461,8 +459,8 @@
     {
      "text": null,
      "clip": "OAP-react-17-FrontendTools",
-     "loom": "https://www.loom.com/share/e68b12f972de4f7fa00313eb6f471ac1",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/36414d099b394d7d9123e5f4b8b0c4da",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -480,8 +478,8 @@
     {
      "text": null,
      "clip": "OAP-react-37-ComponentsAsTools",
-     "loom": "https://www.loom.com/share/cd6f4bf5d1f94c8283a25b99c5e595e2",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/e20376578f7140b3873a50a40b6887ee",
+     "filmed": "2026-11-23"
     }
    ],
    "notes": [
@@ -503,22 +501,22 @@
    ],
    "links": [
     {
-     "text": null,
+     "text": "Tool Call Rendering - JS",
      "clip": "OAP-react-20-ToolRendering",
-     "loom": "https://www.loom.com/share/59c24307ea614e2283f7a677e5e83f73",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/b82480be7e1c4beba7a58f300d3f4e6a",
+     "filmed": "2026-11-23"
     },
     {
-     "text": null,
+     "text": "Tool Call Rendering (default render) - JS",
      "clip": "OAP-react-21-ToolRenderingDefault",
-     "loom": "https://www.loom.com/share/c12a7216f8ce4bf1811fe13fd12d8146",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/403893135bc44c16940dd0dd684ad1e9",
+     "filmed": "2026-11-23"
     },
     {
-     "text": null,
+     "text": "Tool Call Rendering (custom render) - JS",
      "clip": "OAP-react-22-ToolRenderingCustom",
-     "loom": "https://www.loom.com/share/1dfb74b2740b40e39fc4174ced762fef",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/c7a78a9db794427f9bfda7033d26d267",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -536,8 +534,8 @@
     {
      "text": null,
      "clip": "OAP-react-38-StateRendering",
-     "loom": "https://www.loom.com/share/58486c8981834969964030b88a471c03",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/bb5a0a2c180e46f692245a0f1ebc3cd6",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -555,8 +553,8 @@
     {
      "text": null,
      "clip": "OAP-react-23-Components",
-     "loom": "https://www.loom.com/share/d138ec8cc9c34940b7d19b40a34e1f90",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/b3dcb2882ba244a9a4ed581d117d72e0",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -574,8 +572,8 @@
     {
      "text": null,
      "clip": "OAP-react-32-ComponentsSurfaces",
-     "loom": "https://www.loom.com/share/418a3d1a09b84e2e9ec62f3e966269b7",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/88265b6184264bf4918ac8133e3f133e",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -593,8 +591,8 @@
     {
      "text": null,
      "clip": "OAP-react-31-ComponentsCatalogs",
-     "loom": "https://www.loom.com/share/b6aa7534d9b34e43b817948896a23adf",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/69b9abe8b5ed4af9acaad2310e471a39",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -615,8 +613,8 @@
     {
      "text": null,
      "clip": "OAP-react-39-ComponentsStandardCatalog",
-     "loom": "https://www.loom.com/share/1a6eab06ba4346dfaf3b790f919ba3a0",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/9982bddceb9b46c8ac6e1dc58ea8ab80",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -633,14 +631,14 @@
     3
    ],
    "notes": [
-    "Issue: asked for product cards, the assistant message stays empty, no ProductCard renders and the cart never fills (3/3 runs)."
+    "Issue: asked for product cards, render_ui is called but no ProductCard renders, the reply stays empty and the cart never fills (2/2 CI takes)."
    ],
    "links": [
     {
      "text": null,
      "clip": "OAP-react-35-ComponentsStateActions",
-     "loom": "https://www.loom.com/share/1f7b47d2cef0465c9690f0f0967d5a3b",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/12859e357ab94c4fabd3c5df8a5c7c9a",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -658,8 +656,8 @@
     {
      "text": null,
      "clip": "OAP-react-33-ComponentsTheming",
-     "loom": "https://www.loom.com/share/235bd4d3a6984e909e66ed4028ecad98",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/de75a0ad6632478e9aa675b27ed51ee7",
+     "filmed": "2026-11-23"
     }
    ],
    "notes": []
@@ -678,8 +676,8 @@
     {
      "text": null,
      "clip": "OAP-react-34-ComponentsTransports",
-     "loom": "https://www.loom.com/share/d5033a6da96941ef96d65a6e9ac03578",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/61254bf76c3e43ae9f05d40704d2b83b",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -697,8 +695,8 @@
     {
      "text": null,
      "clip": "OAP-react-36-ComponentsMarkdownMode",
-     "loom": "https://www.loom.com/share/35f782751a84442baaf5d0466c98d971",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/73884543985b4b47a8a1e38ded91b130",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -719,8 +717,8 @@
     {
      "text": null,
      "clip": "OAP-react-40-ComponentsFromA2UI",
-     "loom": "https://www.loom.com/share/8af8162304824e2eb63c6907887c289c",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/aae1c0ff017642daa33b3ce7706fb91e",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -737,14 +735,14 @@
     4
    ],
    "notes": [
-    "Issue: the agent code is the CopilotKit Python SDK (from copilotkit import a2ui), not OpenAI Agents; the surface fails with A2UI render error: Cannot read properties of undefined (reading 'map')."
+    "Issue: with the OpenAI Agents agent from the Dynamic Schema Code tab (a2ui_dynamic.py, ag_ui_a2ui_toolkit), the surface fails with A2UI render error: Cannot read properties of undefined (reading 'map')."
    ],
    "links": [
     {
      "text": null,
      "clip": "OAP-react-28-A2UI",
-     "loom": "https://www.loom.com/share/b731388a00a1440f9458b3d87d8dac7a",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/913d53f3ccae42eb9f058c089d4fac10",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -761,14 +759,14 @@
     5
    ],
    "notes": [
-    "Issue: the only agent code is LangGraph (ag_ui_langgraph, langchain_openai); for other agents the page only says to write your own generate_a2ui tool. The surface fails with A2UI render error: Cannot read properties of undefined (reading 'map')."
+    "Issue: following the Code tab's OpenAI Agents agent (a2ui_dynamic.py, ag_ui_a2ui_toolkit), the surface fails with A2UI render error: Cannot read properties of undefined (reading 'map')."
    ],
    "links": [
     {
      "text": null,
      "clip": "OAP-react-29-A2UIDynamicSchema",
-     "loom": "https://www.loom.com/share/3acbd321ea0a4ce08e2e8364e1281dec",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/22b9e140bce64e759858f1fd7edaf470",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -780,19 +778,17 @@
    "child": false,
    "docPath": "generative-ui/a2ui/fixed-schema",
    "reachable": "sidebar",
-   "status": "❌",
-   "findings": [
-    6
-   ],
+   "status": "✅",
+   "findings": [],
    "notes": [
-    "Issue: the page defines display_flight but never builds the agent; with an agent added and the page's flight_schema.json, the card renders with every field empty."
+    "Note: the agent and flight_schema.json are in the Code tab; demo_agents._common and the agent server are not shown."
    ],
    "links": [
     {
      "text": null,
      "clip": "OAP-react-30-A2UIFixedSchema",
-     "loom": "https://www.loom.com/share/64659feeea5944d79229f1c72851da80",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/7a93390be7654af3aae35fa04dd1375e",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -804,19 +800,17 @@
    "child": false,
    "docPath": "generative-ui/json-render",
    "reachable": "sidebar",
-   "status": "❌",
-   "findings": [
-    24
-   ],
+   "status": "✅",
+   "findings": [],
    "notes": [
-    "Issue: the page gives no OpenAI Agents agent, only example agent output; works only on an agent written by hand."
+    "Note: the agent and its prompt are in the page's Code tab; demo_agents._common (MODEL, chat_settings) is never shown."
    ],
    "links": [
     {
      "text": null,
      "clip": "OAP-react-25-JsonRender",
-     "loom": "https://www.loom.com/share/1bead00ad4214b26ae0b3d27c0e3c569",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/ad5c23fbfa0e470b9b3c996f4be44328",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -828,19 +822,17 @@
    "child": false,
    "docPath": "generative-ui/hashbrown",
    "reachable": "sidebar",
-   "status": "❌",
-   "findings": [
-    7
-   ],
+   "status": "✅",
+   "findings": [],
    "notes": [
-    "Issue: the page gives no OpenAI Agents agent, only the JSON the agent should send; works only on an agent written by hand."
+    "Note: the agent and its prompt are in the page's Code tab; demo_agents._common (MODEL, chat_settings) is never shown."
    ],
    "links": [
     {
      "text": null,
      "clip": "OAP-react-26-Hashbrown",
-     "loom": "https://www.loom.com/share/01f0707ab8024c8588c3f807663d6c74",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/e0e711aec8c346eba60f0b1dfe586a14",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -858,8 +850,8 @@
     {
      "text": null,
      "clip": "OAP-react-24-McpApps",
-     "loom": "https://www.loom.com/share/f0fcad4941204960a6c80d54dceb2d05",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/f3acca77d56d42759c2a699fd477613f",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -880,8 +872,8 @@
     {
      "text": null,
      "clip": "OAP-react-27-OpenGenerativeUI",
-     "loom": "https://www.loom.com/share/a9dd84a03ee24092a2c738a45e9f8c67",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/49869135b0654e568995442cf1ac412c",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -902,8 +894,8 @@
     {
      "text": null,
      "clip": "OAP-react-41-SharedState",
-     "loom": "https://www.loom.com/share/3d6850ada48e48dbb224338b13c1f952",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/e8c48acfc2be45cd91fee087f0764012",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -915,19 +907,17 @@
    "child": false,
    "docPath": "shared-state/rendering-in-app",
    "reachable": "sidebar",
-   "status": "❌",
-   "findings": [
-    1
-   ],
+   "status": "✅",
+   "findings": [],
    "notes": [
-    "Issue: useAgent() with no agentId looks for an agent named \"default\", which no step registers: Agent 'default' not found after runtime sync. Known agents: [openai_agent]."
+    "Note: useAgent() and the provider default to the \"default\" agent; add agent=\"openai_agent\" to the provider."
    ],
    "links": [
     {
      "text": null,
      "clip": "OAP-react-42-RenderAgentState",
-     "loom": "https://www.loom.com/share/0220f5a39c4d47fbbbb3941296463461",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/a8568acd5f4d43c2bdf9fdba8bb9810e",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -948,8 +938,8 @@
     {
      "text": null,
      "clip": "OAP-react-43-StateStreaming",
-     "loom": "https://www.loom.com/share/1336f32cf43a468e9281aa436454eb11",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/1fcd1d686a594cae9de682134d5a7d67",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -967,8 +957,8 @@
     {
      "text": null,
      "clip": "OAP-react-44-AgentReadOnly",
-     "loom": "https://www.loom.com/share/171c70b264c248fbb818499e9893f781",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/3e817d2f54c2480d8b14965dbe87678f",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -986,8 +976,8 @@
     {
      "text": null,
      "clip": "OAP-react-45-HumanInTheLoop",
-     "loom": "https://www.loom.com/share/407dc9d5e41549efa643ed430b11aec5",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/5e25053ae02d4f65a290727207f7432e",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -1035,8 +1025,8 @@
     {
      "text": null,
      "clip": "OAP-react-46-GovernedActions",
-     "loom": "https://www.loom.com/share/1fc0a71291ab4f1aa3fc2414fbbd3efe",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/bf4404e2dcf04f57bce09fdb6d45872d",
+     "filmed": "2026-11-23"
     }
    ],
    "notes": [
@@ -1057,8 +1047,8 @@
     {
      "text": null,
      "clip": "OAP-react-47-WebMCP",
-     "loom": "https://www.loom.com/share/ea3d012f76bf4effb0a0ef799130e494",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/86cde9fce8f5407682494eaa9ac1061f",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -1076,8 +1066,8 @@
     {
      "text": null,
      "clip": "OAP-react-48-SubAgents",
-     "loom": "https://www.loom.com/share/acf578e960744c9f83e3fb2dca066a97",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/12da9b8322924f9d9ea63f61eca037aa",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -1095,8 +1085,8 @@
     {
      "text": null,
      "clip": "OAP-react-18-AgentConfig",
-     "loom": "https://www.loom.com/share/40aa773c7f56471cbcef8b2468cc0559",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/7cc9089b0923400bbbe2195d296a8920",
+     "filmed": "2026-11-23"
     }
    ]
   },
@@ -1114,8 +1104,8 @@
     {
      "text": null,
      "clip": "OAP-react-19-Inspector",
-     "loom": "https://www.loom.com/share/f786f7ab2051435396370a9bb0aea72b",
-     "filmed": "2026-11-18"
+     "loom": "https://www.loom.com/share/a91cf9dd952e42348a873155ee9be421",
+     "filmed": "2026-11-23"
     }
    ]
   }

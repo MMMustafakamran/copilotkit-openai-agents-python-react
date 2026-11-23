@@ -7,7 +7,7 @@ import { glideClick, glideTo } from './glide-click';
 import { runStandardAction } from '../core/actions';
 import { closeNotepad, openNotepad, typeInNotepad } from '../core/overlays/notepad';
 import { clickTaskbarApp, ensureOverlays, waitForHydration } from '../core/overlays/taskbar';
-import { checkpoint, describe, logAction, mark, probeText, tracked } from '../core/timeline';
+import { checkpoint, describe, logAction, mark, probeText, surfaceContent, tracked } from '../core/timeline';
 import { voiceGate } from '../core/voice';
 import { isFast } from '../core/fast';
 import { SELECTORS } from '../config/selectors.config';
@@ -37,50 +37,26 @@ export interface DocEvidence {
 }
 
 export const FINDING_NOTES: Record<string, string> = {
-  // #1
-  'rendering-in-app': [
-    'doc says useAgent with no agentid means the default agent and the canvas shows the agent state',
-    'page crashes instead, useagent agent default not found after runtime sync',
-    'known agents is only openai_agent from the quickstart',
-    'nothing on the page registers a default agent or says to pass agentid',
-    'harness copy with agent=openai_agent on the provider works',
-  ].join('\n'),
-  // #2
-  'headless-threads': [
-    'headless threads page says use this runtime and the sidebar lists ur threads',
-    'chat never replies,agent openai_agent not found after runtime sync, known agents default',
-    'the server.ts on the page registers the agent as default',
-    'but the quickstart provider targets openai_agent so they never match',
-    'also agent and verifyappsession in server.ts are never defined,had to add them',
-  ].join('\n'),
   // #3
   'components-state-actions': [
     'doc says the agent renders product cards with an add to cart button that fills the cart',
     'asked for 2 product cards, assistant message just stays empty',
-    'no productcard renders and the cart never fills,3 runs same',
+    'no productcard renders and the cart never fills,render_ui gets called and nothing shows,both runs same',
     'shopui is split over a few blocks on the page,merged it into one catalog',
   ].join('\n'),
   // #4
   a2ui: [
-    'a2ui page says the agent emits a2ui operations and the surface renders',
+    'a2ui page says the agent emits a2ui operations and the middleware renders them as surfaces in the chat',
     'got a red box instead,a2ui render error cannot read properties of undefined reading map',
-    'the agent code on the page is from copilotkit import a2ui,thats the copilotkit python sdk not openai agents',
-    'no openai agents agent anywhere so i wrote one myself',
+    'agent is the openai agents one from the dynamic schema code tab,a2ui_dynamic.py with ag_ui_a2ui_toolkit,used as is',
+    'the agent run finishes but the surface never renders,same in both runs',
   ].join('\n'),
   // #5
   'a2ui-dynamic': [
-    'dynamic schema page says the generated dashboard renders cards as data comes in',
+    'dynamic schema page says the middleware renders cards progressively as data items arrive',
     'no dashboard,chat shows a2ui render error cannot read properties of undefined reading map',
-    'the only agent.py on the page is langgraph,ag_ui_langgraph get_a2ui_tools and langchain_openai',
-    'for other agents it just says write ur own generate_a2ui tool,links a typescript example',
-    'and my_other_tool is never defined,nothing for openai agents so agent is my own',
-  ].join('\n'),
-  // #6
-  'a2ui-fixed': [
-    'fixed schema page says display_flight fills the flight card with origin destination airline price',
-    'card and book flight button show up but every field is empty',
-    'page defines display_flight but never builds an agent that uses it,had to add the agent',
-    'flight_schema.json is on the page now,used it as is,still empty fields',
+    'used the openai agents agent from the code tab as is,a2ui_dynamic.py with ag_ui_a2ui_toolkit',
+    'generate_a2ui runs and returns the surface but it never renders,same in both runs',
   ].join('\n'),
   // #22
   'components-theming': [
@@ -89,50 +65,21 @@ export const FINDING_NOTES: Record<string, string> = {
     'reply stays empty or says part of this ui couldnt be shown,3 runs same',
     'so the theme can never be seen',
   ].join('\n'),
-  // #7 (⚠️)
-  hashbrown: [
-    'hashbrown page says the agent sends one json object and the dashboard streams in',
-    'but page has no openai agents agent at all,just the example json',
-    'so as written theres nothing to run on the backend',
-    'dashboard only shows on an agent i wrote myself,had to guess the prompt too',
-  ].join('\n'),
-  // #24
-  'json-render': [
-    'json render page says the agent emits a root elements json object and the dashboard renders',
-    'but theres no openai agents agent on the page,only example agent output',
-    'so u cant run it as written',
-    'had to write the agent and its prompt myself,then the dashboard shows up',
-  ].join('\n'),
 };
 
-/** Where each finding shows on the RENDERED doc page (checked headless, 2026-11-18). */
+/** Where each finding shows on the RENDERED doc page (checked on the rendered HTML, 2026-11-20). */
 export const FINDING_EVIDENCE: Record<string, DocEvidence[]> = {
-  'rendering-in-app': [
-    { text: 'No agentId means the "default" agent', caption: 'useAgent() with no id wants "default"; the quickstart registers only openai_agent' },
-  ],
-  'headless-threads': [
-    { text: 'default: agent,', caption: 'server.ts registers "default"; the quickstart provider targets openai_agent' },
-  ],
   'components-state-actions': [
     { text: '"Add to cart" must add to the cart, with no message to the agent.', caption: 'No ProductCard renders, cart stays empty' },
   ],
   a2ui: [
-    { text: 'from copilotkit import a2ui', caption: 'CopilotKit Python SDK, not OpenAI Agents' },
+    { text: 'It renders them as surfaces in the chat', caption: 'the surface never renders: A2UI render error (reading map)' },
   ],
   'a2ui-dynamic': [
-    { text: 'from ag_ui_langgraph import get_a2ui_tools', caption: 'LangGraph agent code on the OpenAI Agents page' },
-  ],
-  'a2ui-fixed': [
-    { text: 'def display_flight(origin: str, destination: str, airline: str, price: str) -> dict:', caption: 'Tool defined, but no Agent is built with it' },
+    { text: 'renders cards progressively as data items arrive', caption: 'Code-tab agent used as is; A2UI render error (reading map)' },
   ],
   'components-theming': [
     { text: 'Set the variables with the', caption: 'theme option; no themed component ever renders' },
-  ],
-  'json-render': [
-    { text: 'JSON object as the assistant message content', caption: 'Only the output format, no OpenAI Agents agent' },
-  ],
-  hashbrown: [
-    { text: 'The agent sends one JSON object as the assistant message', caption: 'Only the output format, no OpenAI Agents agent' },
   ],
 };
 
@@ -514,6 +461,7 @@ async function showErrorBanner(page: Page): Promise<void> {
  * path. On these full-height chat pages the recorder's send never reached the runtime (no user
  * message appeared), while type + Enter works on the same page. Then wait for the reply as usual.
  */
+const RENDERS_SURFACE = (id: string) => /^components/.test(id);
 const keyboardSend: PageActionHandler = async (page, config, _root, ctx) => {
   const { getAssistantMessageCount } = await import('../core/actions');
   const input = page.locator('textarea:visible, [contenteditable="true"]:visible').first();
@@ -554,7 +502,10 @@ const keyboardSend: PageActionHandler = async (page, config, _root, ctx) => {
   }
   // A reply is either assistant text or a new generative-UI surface; record both.
   void checkpoint('reply', 'agent reply rendered', lastReply(page), { ok: () => errored === false });
-  void checkpoint('surface', 'generative-UI surface rendered (if this page renders one)', async () => {
+  // Only the Components pages render a surface. Hashbrown / JSON Render draw inside the assistant
+  // message and the threads / shared-state pages render none, so a surface check there always
+  // failed (CI probe 2026-11-20: false fails on all four).
+  if (RENDERS_SURFACE(config.id)) void checkpoint('surface', 'generative-UI surface rendered', async () => {
     const n = await page.evaluate(() => document.querySelectorAll('[data-generative-ui-surface], .a2ui-surface').length).catch(() => 0);
     return n > surfacesBefore ? `${n - surfacesBefore} new surface(s)` : null;
   });
@@ -710,12 +661,31 @@ const genuiTake: PageActionHandler = async (page, config, _root, ctx) => {
   if (first !== 'surface') await Promise.race([appeared, sleep(10000)]);
   await sleep(first === 'surface' ? 6000 : 1500);
   const after = await surfaceCount(page);
+  // An empty surface container is not a rendered surface (CI probe 2026-11-20, Components:
+  // 1 new surface, no visible content). Count only surfaces that show something.
+  // core surfaceContent() skips a surface whose outer box has no size (display: contents wrapper):
+  // CI 2026-11-20 it called the rendered "Plan prices" chart card empty. Look inside instead: any
+  // surface with visible text or a sized svg / button / img counts. Give it up to 15 s to paint.
+  const shownNow = () =>
+    page.evaluate((sel) => Array.from(document.querySelectorAll(sel)).filter((el) => {
+      if (((el as HTMLElement).innerText || '').trim()) return true;
+      return Array.from(el.querySelectorAll('svg, canvas, img, button, input')).some((m) => {
+        const r = m.getBoundingClientRect();
+        return r.width * r.height >= 100;
+      });
+    }).length, SURFACE_SEL).catch(() => 0);
+  let shown = await shownNow();
+  for (let i = 0; i < 15 && shown === 0 && after > before; i++) {
+    await sleep(1000);
+    shown = await shownNow();
+  }
+  void surfaceContent;
   const reply = await lastReply(page)();
   void checkpoint('reply', 'agent reply text', async () => reply);
   void checkpoint('surface', 'generative-UI surface rendered', async () =>
     after > before ? `${after - before} new surface(s)` : null,
   );
-  if (after > before) {
+  if (after > before && shown > 0) {
     ctx.warn('A generative-UI surface rendered in this take: the known failure did not reproduce.');
     await sleep(2500);
     return;
@@ -758,6 +728,8 @@ function withFindingOnFailure(handler: PageActionHandler): PageActionHandler {
   };
 }
 export const runGenuiFindingAction = withFindingOnFailure(genuiTake);
+/** Same take without the finding tail (✅ pages that render a surface). */
+export const runGenuiAction: PageActionHandler = genuiTake;
 /** True for the POST that carries an agent run (REST `/agent/<id>/run` or the single endpoint). */
 function isRunRequest(r: import('playwright').Request): boolean {
   if (r.method() !== 'POST' || !/copilotkit/.test(r.url())) return false;
@@ -906,6 +878,14 @@ const renderingInAppTake: PageActionHandler = async (page, config, root, ctx) =>
   ])(page, config, root, ctx);
 };
 export const runRenderingInAppFindingAction = withFindingOnFailure(renderingInAppTake);
+/**
+ * ✅ since 2026-11-20 (minor: add agent="openai_agent" to the provider). The route is the harness
+ * copy with that one fix; the verbatim page stays in the repo.
+ */
+export const runRenderingInAppAction: PageActionHandler = scripted([
+  { waitText: 'Project launch', timeoutMs: 30000 },
+  { prompt: 'Hi! What can you see?' },
+]);
 /** Doc-only finding (docOnlyAction): highlight the faulty text on the doc, then the Notepad note. */
 export const runDocOnlyFindingAction: PageActionHandler = async (page, config) => {
   await writeFinding(page, config.id, config);
@@ -982,7 +962,8 @@ const headlessThreadsTake: PageActionHandler = async (page, config, root, ctx) =
   }
   await sleep(3000);
 };
-export const runHeadlessThreadsAction: PageActionHandler = withFinding(headlessThreadsTake); // #2: finding always closes the take
+// ✅ since 2026-11-20 (provider agent renamed to "default", HARNESS): a plain working take, no Notepad.
+export const runHeadlessThreadsAction: PageActionHandler = headlessThreadsTake;
 /** Shared state streaming (Python): the agent writes into the Document pane, not the chat. Wait for the pane text. */
 export const runDocumentStreamAction: PageActionHandler = async (page, config, _root, ctx) => {
   const pane = page.locator('main').first();
